@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Notif } from '../../components/notification';
+import { Notification } from '../../components/notification';
 import { formatNumber, getDateToday } from '../../utils';
 import {
   TransferContainer,
@@ -15,7 +15,7 @@ import {
 export const Transfer = (props) => {
   const { isClient, client } = props;
   const [users, setUsers] = useState(props.users);
-  const [receivers, setReceivers] = useState(users);
+  const [receivers] = useState(users);
   const [sender, setSender] = useState(isClient ? client : { balance: 0 });
   const [receiver, setReceiver] = useState({ balance: 0 });
   const [notif, setNotif] = useState({
@@ -74,7 +74,6 @@ export const Transfer = (props) => {
 
     const messages = event.target.message.value;
 
-    console.log(messages);
 
     if (amount <= 0) return false;
 
@@ -169,7 +168,7 @@ export const Transfer = (props) => {
   return (
     <TransferContainer>
       <FormBody onSubmit={transferFund}>
-        <Notif message={notif.message} style={notif.style} />
+        <Notification message={notif.message} style={notif.style} />
         <FormHeading>Sender</FormHeading>
         <FormLabel>From</FormLabel>
         {senderField}

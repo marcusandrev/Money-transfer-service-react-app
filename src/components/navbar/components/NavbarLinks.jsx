@@ -1,11 +1,11 @@
 import React from 'react';
-import { NavbarContainer, NavbarItems, NavbarItem } from './Navbar.styles';
+import { NavbarContainer, NavbarItems, NavbarItem } from '../Navbar.styles';
 
-//this is the skeleton
+// skeleton of NavbarLinks
 export const NavbarLinks = (props) => {
   const { user, logoutHandler, changePage, page } = props;
 
-  //link is the navbar links
+  // links are the navbar links
   let links = null;
   if (user) {
     links = (
@@ -20,7 +20,7 @@ export const NavbarLinks = (props) => {
   return <NavbarContainer>{links}</NavbarContainer>;
 };
 
-// this is the link to pages
+// link to pages
 const PagesLink = (props) => {
   const { changePage, logoutHandler } = props;
 
@@ -28,13 +28,11 @@ const PagesLink = (props) => {
     <NavbarItems>
       <NavLink
         onClickHandler={changePage}
-        // active={page}
         page='home'
         text='Home'
       />
       <NavLink
         onClickHandler={changePage}
-        // active={page}
         page='transfer'
         text='Transfer'
       />
@@ -43,7 +41,7 @@ const PagesLink = (props) => {
   );
 };
 
-// this is the text
+// navbar items
 const NavLink = (props) => {
   const { text, page } = props;
 

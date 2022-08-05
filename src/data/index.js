@@ -1,4 +1,4 @@
-const DATA = [
+const DummyAccounts = [
     {
       email: 'andre@gmail.com',
       password: '123456',
@@ -17,4 +17,4 @@ const DATA = [
     },
   ];
   
-  export default DATA;
+  export default DummyAccounts;

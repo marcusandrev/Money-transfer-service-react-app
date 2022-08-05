@@ -1,9 +1,10 @@
 # Overview:
-This reactJS web app is a money transfer service where a user can send money to another user with a message.
+This reactJS web app is a money transfer service where a user can send money to another user with a message. <br />
+<b>Website: </b>https://money-transfer-service.vercel.app/
 
 ## To Setup:
 1. Clone repository to local.
-2. Install dependencies: `yarn install`
+2. Install dependencies: `yarn`
 3. Running the app in development mode: `yarn start`
 
 
@@ -18,13 +19,11 @@ Use the following dummy accounts to try out the web app
 ```
 email: andre@gmail.com
 password: 123456
-
 ```
 
 ### User B
 ```
 email: lambert@gmail.com
 password: 123456
-
 ```
 

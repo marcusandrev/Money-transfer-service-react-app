@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Notif } from '../../components/notification';
+import { Notification } from '../../components/notification';
 import { LoginFieldSets } from './components/LoginFieldSets';
 import { LoginButton } from './components/LoginButton';
 import {
@@ -34,7 +34,7 @@ export const LogIn = (props) => {
         <CardHeading>Welcome</CardHeading>
       </CardHeader>
 
-      <Notif message={props.notif.message} style={props.notif.style} />
+      <Notification message={props.notif.message} style={props.notif.style} />
       <CardBody onSubmit={onSubmitHandler}>
         <CardFieldset>
           <CardInput
