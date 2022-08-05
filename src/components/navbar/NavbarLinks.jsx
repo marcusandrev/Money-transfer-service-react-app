@@ -24,11 +24,13 @@ export const NavbarItem = styled.a`
 //this is the skeleton
 export const NavbarLinks = (props) => {
   const { user, logoutHandler, changePage, page } = props;
-  let menu = null;
+
+  //link is the navbar links
+  let links = null;
 
   // regular user
   if (user) {
-    menu = (
+    links = (
       <ClientMenu
         changePage={changePage}
         page={page}
@@ -37,7 +39,7 @@ export const NavbarLinks = (props) => {
     );
   }
 
-  return <NavbarContainer>{menu}</NavbarContainer>;
+  return <NavbarContainer>{links}</NavbarContainer>;
 };
 
 // this is the link to pages
@@ -48,24 +50,24 @@ export const ClientMenu = (props) => {
     <NavbarItems>
       <SideLink
         onClickHandler={changePage}
-        active={page}
+        // active={page}
         page='home'
         text='Home'
       />
       <SideLink
         onClickHandler={changePage}
-        active={page}
+        // active={page}
         page='transfer'
         text='Transfer'
       />
-      <SideLink onClickHandler={logoutHandler} active={page} text='Logout' />
+      <SideLink onClickHandler={logoutHandler}  text='Logout' />
     </NavbarItems>
   );
 };
 
 // this is the text
 export const SideLink = (props) => {
-  const { icon, text, page, active } = props;
+  const { text, page } = props;
 
   function clickLink(event) {
     if (page) {
@@ -81,10 +83,9 @@ export const SideLink = (props) => {
     <li>
       <NavbarItem
         onClick={clickLink}
-        className={active === page ? 'active' : ''}
         href='#'
       >
-        <i className={icon}></i> {text}
+        {text}
       </NavbarItem>
     </li>
   );

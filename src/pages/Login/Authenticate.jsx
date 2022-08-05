@@ -3,17 +3,18 @@ import DATA from '../../data';
 import { LogIn } from './Login';
 import { Navbar } from '../../components/navbar/Navbar';
 
+import {HomePage} from '../Home/HomePage';
+
 export const Authenticate = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [notif, setNotif] = useState({ message: '', style: '' }); //NA
   // const [isAdmin, setIsAdmin] = useState(false);
   const [client, setClient] = useState(null);
-  const localUsers = localStorage.getItem('users');
 
+  const localUsers = localStorage.getItem('users');
   if (!localUsers) {
     localStorage.setItem('users', JSON.stringify(DATA));
   }
-
   const clients = JSON.parse(localStorage.getItem('users'));
 
   const isLoginSuccess = (email, password) => {
@@ -25,11 +26,12 @@ export const Authenticate = () => {
         isFound = true;
 
         setNotif('');
+        
       }
     });
 
     if (!isFound)
-      setNotif({ message: 'Wrong username and password.', style: 'danger' });
+      setNotif({ message: 'Wrong email and password.', style: 'danger' });
     return isFound;
   };
 
@@ -37,6 +39,7 @@ export const Authenticate = () => {
     if (isLoginSuccess(username, password)) {
       setIsLoggedIn(true);
       window.localStorage.setItem('isLoggedIn', true);
+      
     }
   };
 
@@ -47,11 +50,11 @@ export const Authenticate = () => {
     setNotif({ message: 'You have logged out.', style: 'success' });
   };
 
-  
-  const checker = window.localStorage.getItem('isLoggedIn');
+
+  if (isLoggedIn){localStorage.setItem('currentUser', JSON.stringify(client));};
+ 
 
   if (isLoggedIn) {
-    localStorage.setItem('currentUser', JSON.stringify(client));
     return (
       <Navbar
         client={client}

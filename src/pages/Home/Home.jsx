@@ -38,7 +38,7 @@ margin-bottom: 10px;
 
 export const Home = (props) => {
   const { user } = props;
-  console.log(user);
+  // console.log(user);
 
   // this is for transaction history
   const transactions = user.transactions.map((transaction, index) => {
@@ -60,7 +60,7 @@ export const Home = (props) => {
   return (
     <AccountContainer>
       <HomeHeading>Account Profile</HomeHeading>
-      {/* <div className="account"> */}
+      
       <AccountantDetails
         accountNumber={user.number}
         balance={user.balance}
@@ -72,7 +72,6 @@ export const Home = (props) => {
 
         {transactions}
       </TransactionHistoryTable>
-      {/* </div> */}
     </AccountContainer>
   );
 };
