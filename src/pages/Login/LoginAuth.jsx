@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DATA from '../../data';
+import DummyAccounts from '../../data';
 import { LogIn } from './Login';
 import { Navbar } from '../../components/navbar/Navbar';
 
@@ -10,7 +10,7 @@ export const LoginAuth = () => {
 
   const localUsers = localStorage.getItem('users');
   if (!localUsers) {
-    localStorage.setItem('users', JSON.stringify(DATA));
+    localStorage.setItem('users', JSON.stringify(DummyAccounts));
   }
   const clients = JSON.parse(localStorage.getItem('users'));
 
@@ -21,7 +21,6 @@ export const LoginAuth = () => {
       if (user.email === email && user.password === password) {
         setClient(user);
         isFound = true;
-
         setNotif('');
       }
     });
@@ -45,12 +44,9 @@ export const LoginAuth = () => {
     setNotif({ message: 'You have logged out.', style: 'success' });
   };
 
-  if (isLoggedIn) {
-    
-  }
+  if (isLoggedIn) { localStorage.setItem('currentUser', JSON.stringify(client));}
 
   if (isLoggedIn) {
-    localStorage.setItem('currentUser', JSON.stringify(client));
     return (
       <Navbar
         client={client}
