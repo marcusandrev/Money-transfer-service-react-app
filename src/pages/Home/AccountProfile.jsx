@@ -1,18 +1,8 @@
 import React from 'react';
 import { formatNumber } from '../../utils';
-import styled from 'styled-components';
+import { AccountDetailsContainer } from './Home.styles';
 
-export const AccountDetailsContainer = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-
-  padding: 0.25rem;
-  border-radius: 0.3rem;
-  margin-bottom: 2rem;
-`;
-
-export const AccountantDetails = (props) => {
+export const AccountProfile = (props) => {
   const { balance, fullname } = props;
 
   return (
@@ -29,11 +19,11 @@ export const AccountantDetails = (props) => {
   );
 };
 
-export const AccountHolder = (props) => {
+const AccountHolder = (props) => {
   return <h3>{props.fullname}</h3>;
 };
 
-export const AccountBalance = (props) => {
+const AccountBalance = (props) => {
   const balance = props.balance;
-  return <div>Balance: {balance}</div>;
+  return <div>Balance: ₱{balance}</div>;
 };

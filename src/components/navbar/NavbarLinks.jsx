@@ -1,25 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-
-export const NavbarContainer = styled.section`
-  font-family: 'Fredoka';
-  font-size: 1.5rem;
-  background-color: #ffb966;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
-
-export const NavbarItems = styled.ul`
-  list-style: none;
-  display: flex;
-  padding: 0.8rem 0;
-  gap: 2em;
-`;
-
-export const NavbarItem = styled.a`
-  color: #fff;
-`;
+import { NavbarContainer, NavbarItems, NavbarItem } from './Navbar.styles';
 
 //this is the skeleton
 export const NavbarLinks = (props) => {
@@ -31,7 +11,7 @@ export const NavbarLinks = (props) => {
   // regular user
   if (user) {
     links = (
-      <ClientMenu
+      <PagesLink
         changePage={changePage}
         page={page}
         logoutHandler={logoutHandler}
@@ -43,30 +23,30 @@ export const NavbarLinks = (props) => {
 };
 
 // this is the link to pages
-export const ClientMenu = (props) => {
-  const { changePage, logoutHandler, page } = props;
+const PagesLink = (props) => {
+  const { changePage, logoutHandler } = props;
 
   return (
     <NavbarItems>
-      <SideLink
+      <NavLink
         onClickHandler={changePage}
         // active={page}
         page='home'
         text='Home'
       />
-      <SideLink
+      <NavLink
         onClickHandler={changePage}
         // active={page}
         page='transfer'
         text='Transfer'
       />
-      <SideLink onClickHandler={logoutHandler}  text='Logout' />
+      <NavLink onClickHandler={logoutHandler}  text='Logout' />
     </NavbarItems>
   );
 };
 
 // this is the text
-export const SideLink = (props) => {
+const NavLink = (props) => {
   const { text, page } = props;
 
   function clickLink(event) {
