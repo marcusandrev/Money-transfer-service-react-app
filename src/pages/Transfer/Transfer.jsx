@@ -36,12 +36,7 @@ export const Transfer = (props) => {
       }
     });
 
-    // const newUsers = users.filter((user, index) => {
-    //   return user.number !== accountNumber;
-    // });
-
     setSender(sender);
-    // setReceivers(newUsers);
     setReceiver({ number: 0, balance: 0 });
   };
 
@@ -60,15 +55,6 @@ export const Transfer = (props) => {
   };
 
   let senders = null;
-  // if (!isClient) {
-  //   senders = users.map((user) => {
-  //     return (
-  //       <option value={user.number}>
-  //         {user.fullname} #{user.number}gry
-  //       </option>
-  //     );
-  //   });
-  // }
 
   const newReceivers = receivers.map((receiver) => {
     if (sender.number !== receiver.number) {
@@ -92,7 +78,6 @@ export const Transfer = (props) => {
 
     if (amount <= 0) return false;
 
-    // get localstorage users
     const users = JSON.parse(localStorage.getItem('users'));
 
     if (sender.number !== 0 && receiver.number !== 0 && receiver.number) {
@@ -103,8 +88,7 @@ export const Transfer = (props) => {
           if (user.balance - amount >= 0) {
             user.balance -= amount;
 
-            // const transDate = new Date();
-            console.log(user.transactions);
+            // adds transaction information to the beginning of the transaction array
             user.transactions.unshift({
               title: `Fund transfer to ${receiver.fullname} #${receiver.number}`,
               amount: amount,
@@ -125,7 +109,7 @@ export const Transfer = (props) => {
           if (user.number === receiver.number) {
             user.balance += amount;
 
-            // adds the amount to the beginning of the transaction
+            // adds transaction information to the beginning of the transaction array
             user.transactions.unshift({
               title: `Fund transfer from ${sender.fullname} #${receiver.number}`,
               amount: amount,
@@ -188,9 +172,7 @@ export const Transfer = (props) => {
         <Notif message={notif.message} style={notif.style} />
         <FormHeading>Sender</FormHeading>
         <FormLabel>From</FormLabel>
-
         {senderField}
-
         <FormLabel>Current balance</FormLabel>
         <FormInput type='text' value={formatNumber(sender.balance)} disabled />
 

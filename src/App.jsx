@@ -1,11 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-// Pages
-import { Home } from './pages/Home/Home';
-import { Authenticate } from './pages/Login/Authenticate';
-
-import { HomeAuthenticate } from './pages/Home/HomeAuthenticate';
+import { LoginAuth } from './pages/Login/LoginAuth';
 
 export default function App() {
   return (
@@ -13,17 +8,7 @@ export default function App() {
       <React.StrictMode>
         <BrowserRouter>
           <Routes>
-            <Route exact path='/' element={<Authenticate />} />
-            <Route exact path='/home' element={<HomeAuthenticate />} />
-            <Route
-              path='/sample'
-              element={
-                <main style={{ padding: '1rem', textAlign: 'center' }}>
-                  <h1>Logg in first</h1>
-                  <p>The page you are looking for doesn't exist</p>
-                </main>
-              }
-            />
+            <Route exact path='/' element={<LoginAuth />} />
             <Route
               path='*'
               element={
@@ -35,7 +20,6 @@ export default function App() {
             />
           </Routes>
         </BrowserRouter>
-        {/* <Home /> */}
       </React.StrictMode>
     </>
   );

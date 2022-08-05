@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Notif } from '../../components/notification';
+import { LoginFieldSets } from './components/LoginFieldSets';
+import { LoginButton } from './components/LoginButton';
 import {
   CardBody,
-  CardButton,
   CardFieldset,
   CardHeader,
   CardHeading,
@@ -32,6 +33,7 @@ export const LogIn = (props) => {
       <CardHeader>
         <CardHeading>Welcome</CardHeading>
       </CardHeader>
+
       <Notif message={props.notif.message} style={props.notif.style} />
       <CardBody onSubmit={onSubmitHandler}>
         <CardFieldset>
@@ -54,9 +56,7 @@ export const LogIn = (props) => {
             required
           />
         </CardFieldset>
-        <CardFieldset>
-          <CardButton type='submit'>Log In</CardButton>
-        </CardFieldset>
+        <LoginButton />
       </CardBody>
     </Container>
   );

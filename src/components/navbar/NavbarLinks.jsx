@@ -7,8 +7,6 @@ export const NavbarLinks = (props) => {
 
   //link is the navbar links
   let links = null;
-
-  // regular user
   if (user) {
     links = (
       <PagesLink
@@ -40,7 +38,7 @@ const PagesLink = (props) => {
         page='transfer'
         text='Transfer'
       />
-      <NavLink onClickHandler={logoutHandler}  text='Logout' />
+      <NavLink onClickHandler={logoutHandler} text='Logout' />
     </NavbarItems>
   );
 };
@@ -61,10 +59,7 @@ const NavLink = (props) => {
 
   return (
     <li>
-      <NavbarItem
-        onClick={clickLink}
-        href='#'
-      >
+      <NavbarItem onClick={clickLink} href='#'>
         {text}
       </NavbarItem>
     </li>

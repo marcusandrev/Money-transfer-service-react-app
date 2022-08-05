@@ -22,7 +22,6 @@ export const FormHeading = styled.h1`
 `;
 
 export const FormLabel = styled.label`
-  margin: 0.6rem 0 0.3rem 0;
   color: rgba(59, 49, 40, 0.6);
   font-family: 'Nunito Sans';
   width: 100%;

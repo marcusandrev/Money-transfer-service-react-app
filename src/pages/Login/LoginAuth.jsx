@@ -1,14 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import DATA from '../../data';
 import { LogIn } from './Login';
 import { Navbar } from '../../components/navbar/Navbar';
 
-import {HomePage} from '../Home/HomePage';
-
-export const Authenticate = () => {
+export const LoginAuth = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [notif, setNotif] = useState({ message: '', style: '' }); //NA
-  // const [isAdmin, setIsAdmin] = useState(false);
+  const [notif, setNotif] = useState({ message: '', style: '' });
   const [client, setClient] = useState(null);
 
   const localUsers = localStorage.getItem('users');
@@ -26,7 +23,6 @@ export const Authenticate = () => {
         isFound = true;
 
         setNotif('');
-        
       }
     });
 
@@ -39,7 +35,6 @@ export const Authenticate = () => {
     if (isLoginSuccess(username, password)) {
       setIsLoggedIn(true);
       window.localStorage.setItem('isLoggedIn', true);
-      
     }
   };
 
@@ -50,11 +45,12 @@ export const Authenticate = () => {
     setNotif({ message: 'You have logged out.', style: 'success' });
   };
 
-
-  if (isLoggedIn){localStorage.setItem('currentUser', JSON.stringify(client));};
- 
+  if (isLoggedIn) {
+    
+  }
 
   if (isLoggedIn) {
+    localStorage.setItem('currentUser', JSON.stringify(client));
     return (
       <Navbar
         client={client}
