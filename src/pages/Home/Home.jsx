@@ -1,0 +1,15 @@
+import React from 'react';
+import { AccountProfile } from './components/AccountProfile';
+import { TransactionHistory } from './components/TransactionHistory';
+import { AccountContainer } from './Home.styles';
+
+export const Home = (props) => {
+  const { user } = props;
+  return (
+    <AccountContainer>
+      <AccountProfile balance={user.balance} fullname={user.fullname} />
+      <hr />
+      <TransactionHistory user={user} />
+    </AccountContainer>
+  );
+};
